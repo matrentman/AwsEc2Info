@@ -17,10 +17,11 @@ public class AwsEc2Info
 {
     public static void main(String[] args) throws Exception
     {
-	    AWSCredentials credentials = null;
+        AWSCredentials credentials = null;
+        
         try 
         {
-        	//credentials = new BasicAWSCredentials("<ACCESS-KEY>", "<SECRET-KEY> - the longer one");
+            //credentials = new BasicAWSCredentials("<ACCESS-KEY>", "<SECRET-KEY> - the longer one");
             credentials = new ProfileCredentialsProvider("default").getCredentials();
         } 
         catch (Exception e) 
