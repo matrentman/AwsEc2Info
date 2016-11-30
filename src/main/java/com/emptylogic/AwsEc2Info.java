@@ -29,7 +29,8 @@ public class AwsEc2Info
             throw new AmazonClientException("Could not create credentials.", e);
         }
         
-        AmazonEC2 ec2 = new AmazonEC2Client(credentials);
+        AmazonEC2 ec2 = (credentials == null) ? new AmazonEC2Client() : new AmazonEC2Client(credentials);
+        
         int count = 1;
         for (Regions regions : Regions.values())
         {
@@ -48,6 +49,7 @@ public class AwsEc2Info
                             + "\n InstanceType: " + instance.getInstanceType()
                             + "\n Public IP: " + instance.getPublicIpAddress()
                             + "\n Public DNS: " + instance.getPublicDnsName()
+                            + "\n Instance state: " + instance.getState().getName()
                             + "\n");
                     }
                 }
